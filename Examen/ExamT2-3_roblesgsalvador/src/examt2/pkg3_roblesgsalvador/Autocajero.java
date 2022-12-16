@@ -24,28 +24,54 @@ public class Autocajero {
         
         
         boolean terminar = false;
-        int contraseña = 0;
+        boolean acierto = false;
         
-        int numero = 0;
+        int contraseña = 0;
+        int intentos = 3;
+        int numero = 91222;
         
             Scanner leer = new Scanner (System.in);
 
             System.out.println("Introduce la contraseña para ver tu saldo: ");
             
-             try {
-                        contraseña = leer.nextInt();
-
-                        } catch (InputMismatchException edu){
-                            System.out.println("Debes de utilizar numeros" + edu.getMessage());
+            try {
+            contraseña = leer.nextInt();
+             } catch (InputMismatchException edu){
+                            System.out.println("Debes de utilizar numeros" );
 
                         } catch (Exception e){
-                            System.out.println("Contraseña incorrecta" + e.getMessage());
+                            System.out.println("Contraseña incorrecta");
                         
                         }
-        
+            for (int i=2; i<=intentos; i++) {
+                
+                try {
+                 
+                    if (contraseña == numero) {  
+                        System.out.println("¡Has acertado!");
+                        acierto = true;
+                        break; }
+                    
+                    if (i <=2) { 
+                            System.out.print("Otro intento: "); 
+                            contraseña = leer.nextInt(); }
+                            else if (i >= 3) {
+                            System.out.print("Oh ... ULTIMO intento: ");
+                            contraseña = leer.nextInt(); }
+
+                        } catch (InputMismatchException edu){
+                            System.out.println("Debes de utilizar numeros" );
+
+                        } catch (Exception e){
+                            System.out.println("Contraseña incorrecta");
+                        
+                        }
+            }
+            
+            
             System.out.println("Contraseña correcta y tu saldo es:" + Tarjeta.getSaldo(contraseña));
         
-         do {
+         while ((acierto)||(!terminar)) {
 
             System.out.println("Indica de estas opciones cual desea hacer:");
                    System.out.println("‘1’: Ingresar dinero que se indique por consola.");
@@ -88,6 +114,7 @@ public class Autocajero {
                             //Muestra el autor que queremos
                             case 4:
                                 terminar = true;
+                                acierto = false;
                                 break;
 
                             default:
@@ -98,9 +125,8 @@ public class Autocajero {
         //if (numerolibro<= Lista.length){
                 
 
-        }while (!terminar);{
-        System.out.println("Gracias por usar este Programa. Hecho por Salva Robles");
-        }   
+        }
+        System.out.println("Gracias por usar este Programa. Hecho por Salva Robles");   
     }
 }
 
