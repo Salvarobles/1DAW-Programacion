@@ -1,0 +1,26 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
+ */
+package Act13;
+import java.util.Scanner;
+/**
+ *
+ * @author Salva Robles
+ */
+public class Act13 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        // TODO code application logic here
+        Scanner leer = new Scanner (System.in);
+        System.out.println("Introduce tu nombre");
+        String Nombre = leer.next();
+
+        System.out.println("Tu nombre en mayuscula" + Nombre.toUpperCase());
+        System.out.println("Tu nombre en miniscula" + Nombre.toUpperCase());
+        System.out.println("Total de caracteres" + Nombre.length());
+    }
+}
